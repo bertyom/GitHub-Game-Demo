@@ -1,0 +1,141 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Images/UI/HealthBarFrame.png" type="Texture" id=2]
+[ext_resource path="res://Images/UI/GlintBarFrame.png" type="Texture" id=3]
+[ext_resource path="res://Images/UI/StaminaBarFrame.png" type="Texture" id=4]
+[ext_resource path="res://Images/UI/HealthBarProgress.png" type="Texture" id=5]
+[ext_resource path="res://Images/UI/GlintBarProgress.png" type="Texture" id=6]
+[ext_resource path="res://Images/UI/StaminaBarProgress.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/GUI/UIBars.gd" type="Script" id=8]
+[ext_resource path="res://Images/UI/ExpBarProgress.png" type="Texture" id=9]
+[ext_resource path="res://Images/UI/ExpBarFrame.png" type="Texture" id=10]
+[ext_resource path="res://Images/UI/EnemyHealthBarDarker.png" type="Texture" id=11]
+[ext_resource path="res://Images/UI/StaminaBarDarker.png" type="Texture" id=12]
+[ext_resource path="res://Images/UI/GlintBarDarker.png" type="Texture" id=13]
+[ext_resource path="res://Images/UI/ExpBarDarker.png" type="Texture" id=14]
+[ext_resource path="res://Fonts/6px Numbers.tres" type="DynamicFont" id=15]
+
+[node name="UI Bars" type="Control"]
+margin_right = 100.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 100, 70 )
+script = ExtResource( 8 )
+
+[node name="V" type="VBoxContainer" parent="."]
+margin_right = 100.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 70, 60 )
+
+[node name="HealthBar" type="TextureProgress" parent="V"]
+margin_right = 100.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 70, 14 )
+hint_tooltip = "Health"
+value = 100.0
+rounded = true
+texture_under = ExtResource( 11 )
+texture_over = ExtResource( 2 )
+texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+
+[node name="Health" type="Label" parent="V/HealthBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -7.0
+margin_right = 35.0
+margin_bottom = 9.0
+rect_min_size = Vector2( 10, 5 )
+custom_fonts/font = ExtResource( 15 )
+text = "455/365"
+align = 1
+valign = 1
+
+[node name="GlintBar" type="TextureProgress" parent="V"]
+margin_top = 18.0
+margin_right = 100.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 70, 14 )
+hint_tooltip = "Flux"
+value = 100.0
+rounded = true
+texture_under = ExtResource( 13 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 6 )
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 7
+stretch_margin_right = 4
+stretch_margin_bottom = 7
+
+[node name="Glint" type="Label" parent="V/GlintBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -6.0
+margin_right = 35.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 10, 5 )
+custom_fonts/font = ExtResource( 15 )
+text = "455/365"
+align = 1
+valign = 1
+
+[node name="StaminaBar" type="TextureProgress" parent="V"]
+margin_top = 36.0
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 70, 14 )
+hint_tooltip = "Stamina"
+value = 100.0
+rounded = true
+texture_under = ExtResource( 12 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 7 )
+radial_center_offset = Vector2( 1.252, 0 )
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 3
+stretch_margin_right = 4
+stretch_margin_bottom = 3
+
+[node name="Stamina" type="Label" parent="V/StaminaBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -6.0
+margin_right = 35.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 10, 5 )
+custom_fonts/font = ExtResource( 15 )
+text = "455/365"
+align = 1
+valign = 1
+
+[node name="ExpBar" type="TextureProgress" parent="V"]
+margin_top = 54.0
+margin_right = 100.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 70, 4 )
+hint_tooltip = "Experience"
+value = 100.0
+rounded = true
+texture_under = ExtResource( 14 )
+texture_over = ExtResource( 10 )
+texture_progress = ExtResource( 9 )
+radial_center_offset = Vector2( 1.252, 0 )
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 3
+stretch_margin_right = 4
+stretch_margin_bottom = 3

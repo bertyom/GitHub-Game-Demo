@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Fonts/8PX Regular.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Images/UI/QuestNewIcon.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/GUI/QuestTemplate.gd" type="Script" id=3]
+[ext_resource path="res://Images/UI/QuestButton.png" type="Texture" id=4]
+[ext_resource path="res://Images/UI/QuestButtonPressed.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 9, 9 )
+margin_left = 1.0
+margin_right = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 9, 9 )
+margin_left = 1.0
+margin_right = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 9, 9 )
+margin_left = 1.0
+margin_right = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 9, 9 )
+margin_left = 1.0
+margin_right = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+
+[node name="QuestTemplate" type="Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 142, 16 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 4 )
+icon = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="." to="." method="_on_QuestTemplate_pressed"]

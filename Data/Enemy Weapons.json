@@ -1,0 +1,12 @@
+{
+  "ENM_RustySword": {
+    "Attack": 7,
+    "Knockback": 3,
+    "Radius": 27
+  },
+  "ENM_RustyGlaive": {
+    "Attack": 9,
+    "Knockback": 7,
+    "Radius": 38
+  }
+}

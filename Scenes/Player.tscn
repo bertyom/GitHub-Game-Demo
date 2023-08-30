@@ -1,0 +1,462 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://Images/CharacterSprites/HumanTemplate.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Weapons/Steel Sword.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Weapons/Boar Spear.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Weapons/Longbow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Weapons/Recurve Bow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Utility/SoftCollision.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Weapons/Glint Scepter.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Curve" id=12]
+max_value = 625.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.990476, 625 ), 681.129, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=39]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.0
+height = 0.0
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=47]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=43]
+
+[sub_resource type="Animation" id=27]
+resource_name = "DashBackwards"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ArmorContainer/ArmorSlot:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ArmorContainer/PantsSlot:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "DashForward"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 17 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ArmorContainer/PantsSlot:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 17 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ArmorContainer/ArmorSlot:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 17 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ArmorContainer/ArmorSlot:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ArmorContainer/PantsSlot:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=46]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArmorContainer/ArmorSlot:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ArmorContainer/PantsSlot:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 8 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Walk"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ArmorContainer/ArmorSlot:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ArmorContainer/PantsSlot:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "WalkReversed"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 14, 13, 12, 11, 10, 9, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ArmorContainer/ArmorSlot:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 14, 13, 12, 11, 10, 9, 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ArmorContainer/PantsSlot:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 14, 13, 12, 11, 10, 9, 8 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "DashBackwards"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "DashForward"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "WalkReversed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachine" id=16]
+states/DashBackwards/node = SubResource( 28 )
+states/DashBackwards/position = Vector2( 212, 261 )
+states/DashForward/node = SubResource( 34 )
+states/DashForward/position = Vector2( 498, 261 )
+states/Idle/node = SubResource( 19 )
+states/Idle/position = Vector2( 365, -66 )
+states/Walk/node = SubResource( 20 )
+states/Walk/position = Vector2( 620, 87 )
+states/WalkReversed/node = SubResource( 21 )
+states/WalkReversed/position = Vector2( 119, 87 )
+transitions = [ "WalkReversed", "Idle", SubResource( 22 ), "Idle", "WalkReversed", SubResource( 23 ), "Idle", "Walk", SubResource( 24 ), "Walk", "Idle", SubResource( 25 ), "WalkReversed", "DashBackwards", SubResource( 29 ), "DashBackwards", "WalkReversed", SubResource( 30 ), "DashBackwards", "Idle", SubResource( 31 ), "Idle", "DashBackwards", SubResource( 32 ), "DashForward", "Idle", SubResource( 35 ), "Walk", "DashForward", SubResource( 36 ), "DashForward", "Walk", SubResource( 37 ), "Idle", "DashForward", SubResource( 38 ), "WalkReversed", "Walk", SubResource( 40 ), "Walk", "WalkReversed", SubResource( 41 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -48, -42 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=17]
+
+[sub_resource type="CapsuleShape2D" id=42]
+radius = 8.0
+height = 30.0
+
+[sub_resource type="CapsuleShape2D" id=44]
+radius = 4.0
+height = 30.0
+
+[sub_resource type="CapsuleShape2D" id=45]
+radius = 7.0
+height = 28.0
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 267
+script = ExtResource( 2 )
+acceleration = SubResource( 12 )
+dash = SubResource( 39 )
+
+[node name="WorldCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2 )
+shape = SubResource( 1 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="BodySprite" type="Sprite" parent="YSort"]
+position = Vector2( -16, -44 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 8
+vframes = 3
+
+[node name="CustomizationContainer" type="Node2D" parent="YSort/BodySprite"]
+position = Vector2( 16, 18 )
+
+[node name="ArmorContainer" type="Node2D" parent="YSort/BodySprite"]
+
+[node name="ArmorSlot" type="Sprite" parent="YSort/BodySprite/ArmorContainer"]
+centered = false
+hframes = 8
+vframes = 3
+
+[node name="PantsSlot" type="Sprite" parent="YSort/BodySprite/ArmorContainer"]
+hframes = 8
+vframes = 3
+frame = 8
+
+[node name="ShieldContainer" type="Node2D" parent="YSort/BodySprite"]
+position = Vector2( 32, 36 )
+
+[node name="None" type="Node2D" parent="YSort/BodySprite/ShieldContainer"]
+visible = false
+
+[node name="MeleeContainer" type="Node2D" parent="YSort/BodySprite"]
+position = Vector2( 16, 18 )
+
+[node name="None" type="Node2D" parent="YSort/BodySprite/MeleeContainer"]
+visible = false
+
+[node name="AttackTimer" type="Timer" parent="YSort/BodySprite/MeleeContainer/None"]
+
+[node name="Boar Spear" parent="YSort/BodySprite/MeleeContainer" instance=ExtResource( 4 )]
+visible = false
+
+[node name="AnimationTree" parent="YSort/BodySprite/MeleeContainer/Boar Spear" index="3"]
+parameters/playback = SubResource( 47 )
+
+[node name="Steel Sword" parent="YSort/BodySprite/MeleeContainer" instance=ExtResource( 3 )]
+visible = false
+
+[node name="AnimationTree" parent="YSort/BodySprite/MeleeContainer/Steel Sword" index="3"]
+parameters/playback = SubResource( 43 )
+
+[node name="RangedContainer" type="Node2D" parent="YSort/BodySprite"]
+position = Vector2( 16, 18 )
+
+[node name="None" type="Node2D" parent="YSort/BodySprite/RangedContainer"]
+visible = false
+
+[node name="AttackTimer" type="Timer" parent="YSort/BodySprite/RangedContainer/None"]
+
+[node name="Longbow" parent="YSort/BodySprite/RangedContainer" instance=ExtResource( 5 )]
+visible = false
+
+[node name="Recurve Bow" parent="YSort/BodySprite/RangedContainer" instance=ExtResource( 6 )]
+visible = false
+
+[node name="Glint Scepter" parent="YSort/BodySprite/RangedContainer" instance=ExtResource( 9 )]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/BodySprite"]
+anims/DashBackwards = SubResource( 27 )
+anims/DashForward = SubResource( 33 )
+anims/Idle = SubResource( 13 )
+anims/RESET = SubResource( 46 )
+anims/Walk = SubResource( 15 )
+anims/WalkReversed = SubResource( 18 )
+
+[node name="AnimationTree" type="AnimationTree" parent="YSort/BodySprite"]
+tree_root = SubResource( 16 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 17 )
+
+[node name="TimerContainer" type="Node" parent="."]
+
+[node name="DashDuration" type="Timer" parent="TimerContainer"]
+wait_time = 0.25
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="TimerContainer"]
+wait_time = 0.7
+one_shot = true
+
+[node name="DetectionShape" type="Area2D" parent="."]
+visible = false
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionShape"]
+position = Vector2( 0, -19 )
+shape = SubResource( 42 )
+
+[node name="PlayerHurtbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
+position = Vector2( 0, -22 )
+shape = SubResource( 44 )
+
+[node name="SoftCollision" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+position = Vector2( 0, -20 )
+shape = SubResource( 45 )
+
+[connection signal="timeout" from="TimerContainer/DashDuration" to="." method="_on_DashDuration_timeout"]
+[connection signal="timeout" from="TimerContainer/DashCooldown" to="." method="_on_DashCooldown_timeout"]
+[connection signal="area_entered" from="PlayerHurtbox" to="." method="_on_PlayerHurtbox_area_entered"]
+
+[editable path="YSort/BodySprite/MeleeContainer/Boar Spear"]
+[editable path="YSort/BodySprite/MeleeContainer/Boar Spear/Sprite/PlayerMeleeHitbox"]
+[editable path="YSort/BodySprite/MeleeContainer/Steel Sword"]
+[editable path="YSort/BodySprite/MeleeContainer/Steel Sword/Sprite/PlayerMeleeHitbox"]
+[editable path="SoftCollision"]

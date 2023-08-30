@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Images/UI/CharSheetBG.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/8PX Regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Images/UI/TabActive.png" type="Texture" id=3]
+[ext_resource path="res://Images/UI/CharacterSheetPanel.png" type="Texture" id=4]
+[ext_resource path="res://Images/UI/TabInactive.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/GUI/QuestJournal.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 50, 11 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 50, 11 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 4.0
+margin_right = 4.0
+margin_top = 4.0
+margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 4.0
+margin_right = 4.0
+margin_top = 4.0
+margin_bottom = 4.0
+
+[node name="QuestJournal" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -308, 97 )
+script = ExtResource( 6 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="H" type="HBoxContainer" parent="Margin"]
+margin_right = 640.0
+margin_bottom = 360.0
+custom_constants/separation = 1
+
+[node name="Tab" type="TabContainer" parent="Margin/H"]
+margin_right = 150.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 150, 0 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/tab_fg = SubResource( 1 )
+custom_styles/tab_bg = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
+
+[node name="Active" type="Tabs" parent="Margin/H/Tab"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 22.0
+margin_right = -4.0
+margin_bottom = -4.0
+scrolling_enabled = false
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/H/Tab/Active"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="V" type="VBoxContainer" parent="Margin/H/Tab/Active/Scroll"]
+
+[node name="Completed" type="Tabs" parent="Margin/H/Tab"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -14.0
+margin_bottom = -30.0
+scrolling_enabled = false
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/H/Tab/Completed"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="V" type="VBoxContainer" parent="Margin/H/Tab/Completed/Scroll"]
+
+[node name="Panel" type="Panel" parent="Margin/H"]
+margin_left = 151.0
+margin_right = 640.0
+margin_bottom = 360.0
+rect_pivot_offset = Vector2( -382, 57 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 8 )
+
+[node name="Margin" type="MarginContainer" parent="Margin/H/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/H/Panel/Margin"]
+margin_right = 481.0
+margin_bottom = 352.0
+
+[connection signal="tab_changed" from="Margin/H/Tab" to="." method="_on_Tab_tab_changed"]

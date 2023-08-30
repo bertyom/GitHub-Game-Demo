@@ -1,0 +1,184 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 8
+syntax_version = 2
+raw_text = "~ test_sign
+
+if has_read_test1 == false
+	You: This sign says something...
+	You: It reads \"Hehe XD\"
+	set has_read_test1 = true
+	set interaction_already_running = false
+	set get_tree().set_deferred(\"paused\", false)
+else
+	You: I'm not reading this again.
+	set interaction_already_running = false
+	set get_tree().set_deferred(\"paused\", false)"
+errors = [  ]
+titles = {
+"test_sign": "2"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "test_sign",
+"type": "title"
+},
+"10": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "interaction_already_running"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "11",
+"parent_id": "8",
+"type": "mutation"
+},
+"11": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"function": "set_deferred",
+"type": "function",
+"value": [ [ {
+"type": "string",
+"value": "paused"
+} ], [ {
+"type": "bool",
+"value": false
+} ] ]
+} ]
+},
+"next_id": "end!",
+"parent_id": "8",
+"type": "mutation"
+},
+"2": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "has_read_test1"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "8",
+"next_id": "3",
+"next_id_after": "end!",
+"type": "condition"
+},
+"3": {
+"character": "You",
+"character_replacements": [  ],
+"next_id": "4",
+"parent_id": "2",
+"replacements": [  ],
+"text": "This sign says something...",
+"translation_key": "This sign says something...",
+"type": "dialogue"
+},
+"4": {
+"character": "You",
+"character_replacements": [  ],
+"next_id": "5",
+"parent_id": "2",
+"replacements": [  ],
+"text": "It reads \"Hehe XD\"",
+"translation_key": "It reads \"Hehe XD\"",
+"type": "dialogue"
+},
+"5": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "has_read_test1"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_id": "6",
+"parent_id": "2",
+"type": "mutation"
+},
+"6": {
+"mutation": {
+"expression": [ {
+"type": "variable",
+"value": "interaction_already_running"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_id": "7",
+"parent_id": "2",
+"type": "mutation"
+},
+"7": {
+"mutation": {
+"expression": [ {
+"function": "get_tree",
+"type": "function",
+"value": [  ]
+}, {
+"type": "dot"
+}, {
+"function": "set_deferred",
+"type": "function",
+"value": [ [ {
+"type": "string",
+"value": "paused"
+} ], [ {
+"type": "bool",
+"value": false
+} ] ]
+} ]
+},
+"next_id": "end!",
+"parent_id": "2",
+"type": "mutation"
+},
+"8": {
+"next_conditional_id": "end!",
+"next_id": "9",
+"next_id_after": "end!",
+"type": "condition"
+},
+"9": {
+"character": "You",
+"character_replacements": [  ],
+"next_id": "10",
+"parent_id": "8",
+"replacements": [  ],
+"text": "I'm not reading this again.",
+"translation_key": "I'm not reading this again.",
+"type": "dialogue"
+}
+}

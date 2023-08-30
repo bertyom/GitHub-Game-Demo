@@ -1,0 +1,62 @@
+{
+  "test_quest1": {
+	"ID": "test_quest1",
+	"Name": "Test Quest 1",
+	"New": true,
+    "Status": "Active",
+    "Description": "Test [b]Description[/b] 1",
+	"Questgiver": "Metrocop",
+    "Reward": {
+      "1": {
+        "ID": "ITM_GLD",
+        "StackSize": 3
+      },
+      "2": {
+        "ID": "ITEM_HLTH_POT",
+        "StackSize": 2
+      }
+    },
+    "Stages": {
+      "1": {
+        "Status": "Active",
+        "StageDescription": "Pick up that can."
+      },
+      "2": {
+        "Status": "Inactive",
+        "StageDescription": "Now put it in the trash can."
+      },
+      "3": {
+        "Status": "Inactive",
+        "StageDescription": "You can go."
+      },
+    }
+  },
+  "test_quest2": {
+	"ID": "test_quest2",
+    "Name": "Lorem Ipsum",
+	"New": false,
+	"Status": "Completed",
+    "Description": "Lorem Ipsum Dolor Sit Amet",
+	"Questgiver": "Dude lmao",
+    "Reward": {
+      "1": {
+        "ID": "ITM_GLD",
+        "StackSize": 3
+      },
+      "2": {
+        "ID": "ITEM_HLTH_POT",
+        "StackSize": 2
+      }
+    },
+    "Stages": {
+      "1": {
+        "Status": "Completed",
+        "StageDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      },
+      "2": {
+        "Status": "Completed",
+        "StageDescription": "Quisque laoreet, sapien in posuere facilisis, eros ligula tristique nisi, sit amet auctor nisl."
+      }
+    }
+  }
+}

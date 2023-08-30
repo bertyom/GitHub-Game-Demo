@@ -1,0 +1,326 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Images/UI/InventorySheet.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/GUI/EquipSlot.gd" type="Script" id=2]
+[ext_resource path="res://Images/UI/InventorySheetDeco.png" type="Texture" id=3]
+[ext_resource path="res://Images/UI/EquipSheetDeco.png" type="Texture" id=4]
+[ext_resource path="res://Images/UI/InventoryBG.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/GUI/InventorySystem.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/GUI/EquipTexture.gd" type="Script" id=18]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="Inventory" type="Control"]
+script = ExtResource( 17 )
+
+[node name="Equipment" type="NinePatchRect" parent="."]
+margin_right = 70.0
+margin_bottom = 130.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture = ExtResource( 1 )
+draw_center = false
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Equipment"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = -3.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Decoration" type="TextureRect" parent="Equipment"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -35.0
+margin_top = -18.0
+margin_right = 35.0
+margin_bottom = 5.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Equipment"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 6.0
+margin_right = -5.0
+margin_bottom = -5.0
+custom_constants/separation = 5
+
+[node name="ArmorBoxContainer" type="HBoxContainer" parent="Equipment/VBoxContainer"]
+margin_right = 60.0
+margin_bottom = 96.0
+alignment = 1
+
+[node name="EquipRight" type="VBoxContainer" parent="Equipment/VBoxContainer/ArmorBoxContainer"]
+margin_left = 2.0
+margin_right = 18.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 16, 0 )
+
+[node name="None1" type="Panel" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipRight"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+custom_styles/panel = SubResource( 7 )
+
+[node name="PauldronRightSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipRight"]
+margin_top = 20.0
+margin_right = 16.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipRight/PauldronRightSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="HandRightSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipRight"]
+margin_top = 40.0
+margin_right = 16.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipRight/HandRightSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="RingRightSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipRight"]
+margin_top = 60.0
+margin_right = 16.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipRight/RingRightSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="BootRightSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipRight"]
+margin_top = 80.0
+margin_right = 16.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipRight/BootRightSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="EquipCenter" type="VBoxContainer" parent="Equipment/VBoxContainer/ArmorBoxContainer"]
+margin_left = 22.0
+margin_right = 38.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 16, 0 )
+
+[node name="HelmetSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipCenter"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipCenter/HelmetSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="AmuletSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipCenter"]
+margin_top = 20.0
+margin_right = 16.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipCenter/AmuletSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ArmorSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipCenter"]
+margin_top = 40.0
+margin_right = 16.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipCenter/ArmorSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="BeltSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipCenter"]
+margin_top = 60.0
+margin_right = 16.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipCenter/BeltSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="PantsSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipCenter"]
+margin_top = 80.0
+margin_right = 16.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipCenter/PantsSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="EquipLeft" type="VBoxContainer" parent="Equipment/VBoxContainer/ArmorBoxContainer"]
+margin_left = 42.0
+margin_right = 58.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 16, 0 )
+
+[node name="None2" type="Panel" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipLeft"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+custom_styles/panel = SubResource( 7 )
+
+[node name="PauldronLeftSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipLeft"]
+margin_top = 20.0
+margin_right = 16.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipLeft/PauldronLeftSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="HandLeftSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipLeft"]
+margin_top = 40.0
+margin_right = 16.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipLeft/HandLeftSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="RingLeftSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipLeft"]
+margin_top = 60.0
+margin_right = 16.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipLeft/RingLeftSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="BootLeftSlot" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipLeft"]
+margin_top = 80.0
+margin_right = 16.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/ArmorBoxContainer/EquipLeft/BootLeftSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="WeaponBoxContainer" type="HBoxContainer" parent="Equipment/VBoxContainer"]
+margin_top = 101.0
+margin_right = 60.0
+margin_bottom = 117.0
+alignment = 1
+
+[node name="WeaponMeleeSlot" type="TextureRect" parent="Equipment/VBoxContainer/WeaponBoxContainer"]
+margin_left = 12.0
+margin_right = 28.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/WeaponBoxContainer/WeaponMeleeSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="WeaponRangedSlot" type="TextureRect" parent="Equipment/VBoxContainer/WeaponBoxContainer"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 18 )
+
+[node name="Icon" type="TextureRect" parent="Equipment/VBoxContainer/WeaponBoxContainer/WeaponRangedSlot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Inventory" type="NinePatchRect" parent="."]
+margin_left = 69.0
+margin_right = 229.0
+margin_bottom = 130.0
+texture = ExtResource( 1 )
+draw_center = false
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Inventory"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = -3.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Decoration" type="TextureRect" parent="Inventory"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -75.0
+margin_top = -20.0
+margin_right = 75.0
+margin_bottom = 4.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Inventory"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+scroll_horizontal_enabled = false
+
+[node name="MainInventory" type="GridContainer" parent="Inventory/ScrollContainer"]
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+custom_constants/vseparation = 1
+custom_constants/hseparation = 1
+columns = 8

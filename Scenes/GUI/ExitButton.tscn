@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Images/UI/CloseButton.png" type="Texture" id=1]
+[ext_resource path="res://Images/UI/CloseButtonPressed.png" type="Texture" id=2]
+
+[node name="ExitButton" type="TextureButton"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -12.0
+margin_bottom = 12.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )

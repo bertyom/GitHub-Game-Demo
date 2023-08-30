@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/8PX Bold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/8PX Regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Images/UI/QuestStepActive.png" type="Texture" id=3]
+
+[node name="QuestStepTemplate" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="."]
+margin_right = 10.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 10, 10 )
+size_flags_vertical = 2
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Description" type="RichTextLabel" parent="."]
+margin_left = 20.0
+margin_right = 640.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 0, 14 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/bold_font = ExtResource( 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Testus [b]descriptus[/b] 1"
+text = "Testus descriptus 1"
+fit_content_height = true

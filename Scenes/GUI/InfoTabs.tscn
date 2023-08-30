@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/GUI/CharacterSheet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/8PX Regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Images/UI/TabActive.png" type="Texture" id=3]
+[ext_resource path="res://Images/UI/TabInactive.png" type="Texture" id=4]
+[ext_resource path="res://Images/UI/InfoTabBG.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/GUI/InfoTabs.gd" type="Script" id=6]
+[ext_resource path="res://Images/UI/CharSheetBG.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/GUI/ExitButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/GUI/QuestJournal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/GUI/Lorebook.tscn" type="PackedScene" id=10]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 50, 11 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 50, 11 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 7.0
+margin_right = 7.0
+margin_top = 7.0
+margin_bottom = 7.0
+
+[node name="InfoTabs" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 640, 360 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 6 )
+
+[node name="BG" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/tab_fg = SubResource( 2 )
+custom_styles/tab_bg = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Character" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 25.0
+margin_right = -7.0
+margin_bottom = -7.0
+scrolling_enabled = false
+
+[node name="CharacterSheet" parent="TabContainer/Character" instance=ExtResource( 1 )]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Journal" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -14.0
+margin_bottom = -30.0
+scrolling_enabled = false
+
+[node name="QuestJournal" parent="TabContainer/Journal" instance=ExtResource( 9 )]
+
+[node name="Lorebook" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -14.0
+margin_bottom = -30.0
+scrolling_enabled = false
+
+[node name="Lorebook" parent="TabContainer/Lorebook" instance=ExtResource( 10 )]
+
+[node name="Map" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -14.0
+margin_bottom = -30.0
+scrolling_enabled = false
+
+[node name="ExitButton" parent="." instance=ExtResource( 8 )]
+margin_top = 18.0
+margin_bottom = 30.0
+
+[connection signal="tab_selected" from="TabContainer" to="." method="_on_TabContainer_tab_selected"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

@@ -1,0 +1,138 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=33 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "LeftTopAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "LeftBottomAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "LeftAttack"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=1]
+blend_point_0/node = SubResource( 30 )
+blend_point_0/pos = Vector2( 0, -1 )
+blend_point_1/node = SubResource( 31 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 32 )
+blend_point_2/pos = Vector2( -1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "RightTopAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "RightBottomAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "RightAttack"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=2]
+blend_point_0/node = SubResource( 24 )
+blend_point_0/pos = Vector2( 0, -1 )
+blend_point_1/node = SubResource( 25 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 26 )
+blend_point_2/pos = Vector2( 1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Left"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "LeftBottom"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "LeftTop"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=3]
+blend_point_0/node = SubResource( 18 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 19 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 20 )
+blend_point_2/pos = Vector2( 0, -1 )
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "RightBottom"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "RightTop"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=7]
+blend_point_0/node = SubResource( 4 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 5 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 6 )
+blend_point_2/pos = Vector2( 1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "LeftTopWindup"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "LeftBottomWindup"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "LeftWindup"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=8]
+blend_point_0/node = SubResource( 27 )
+blend_point_0/pos = Vector2( 0, -1 )
+blend_point_1/node = SubResource( 28 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 29 )
+blend_point_2/pos = Vector2( -1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "RightWindup"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "RightTopWindup"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "RightBottomWindup"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=9]
+blend_point_0/node = SubResource( 21 )
+blend_point_0/pos = Vector2( 1, 0 )
+blend_point_1/node = SubResource( 22 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 23 )
+blend_point_2/pos = Vector2( 0, 1 )
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[resource]
+states/AttackLeft/node = SubResource( 1 )
+states/AttackLeft/position = Vector2( 249.745, -110.298 )
+states/AttackRight/node = SubResource( 2 )
+states/AttackRight/position = Vector2( 522.745, -110.298 )
+states/WeaponLeft/node = SubResource( 3 )
+states/WeaponLeft/position = Vector2( 249.745, -243.298 )
+states/WeaponRight/node = SubResource( 7 )
+states/WeaponRight/position = Vector2( 522.745, -243.298 )
+states/WindupLeft/node = SubResource( 8 )
+states/WindupLeft/position = Vector2( 66.7451, -180.298 )
+states/WindupRight/node = SubResource( 9 )
+states/WindupRight/position = Vector2( 729.745, -180.298 )
+transitions = [ "WeaponRight", "WeaponLeft", SubResource( 10 ), "WeaponLeft", "WeaponRight", SubResource( 11 ), "WeaponLeft", "WindupLeft", SubResource( 12 ), "WeaponRight", "WindupRight", SubResource( 13 ), "AttackLeft", "WeaponLeft", SubResource( 14 ), "AttackRight", "WeaponRight", SubResource( 15 ), "WindupLeft", "AttackLeft", SubResource( 16 ), "WindupRight", "AttackRight", SubResource( 17 ) ]
+start_node = "WeaponRight"
+graph_offset = Vector2( -111.255, -311.298 )

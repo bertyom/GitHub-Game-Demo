@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/GUI/EnemyAlertIcon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GUI/EnemyLostIcon.tscn" type="PackedScene" id=2]
+
+[node name="EnemyIconPopup" type="Control"]
+margin_left = -7.5
+margin_top = -60.0
+margin_right = 8.5
+margin_bottom = -44.0
+
+[node name="EnemyAlertIcon" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="EnemyLostIcon" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = -0.192
+margin_top = 0.224
+margin_right = 15.808
+margin_bottom = 16.224

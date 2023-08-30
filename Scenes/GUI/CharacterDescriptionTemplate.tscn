@@ -1,0 +1,112 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Images/UI/QuestNamePanel.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/8PX Bold.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/8PX Regular.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/GUI/CharacterDescriptionTemplate.gd" type="Script" id=4]
+[ext_resource path="res://Images/CharacterPortraits/Placeholder1.png" type="Texture" id=5]
+[ext_resource path="res://Images/UI/CharacterSheetPanel.png" type="Texture" id=6]
+[ext_resource path="res://Images/UI/ExpBarFrame.png" type="Texture" id=7]
+[ext_resource path="res://Images/UI/IconAffinityLove.png" type="Texture" id=8]
+[ext_resource path="res://Images/UI/EnemyHealthBarProgress.png" type="Texture" id=9]
+[ext_resource path="res://Images/UI/EnemyHealthBarDarker.png" type="Texture" id=10]
+[ext_resource path="res://Fonts/6px Numbers.tres" type="DynamicFont" id=11]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 22, 16 )
+margin_left = 11.0
+margin_right = 11.0
+margin_top = 2.0
+margin_bottom = 2.0
+
+[node name="CharacterDescriptionTemplate" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 14
+script = ExtResource( 4 )
+
+[node name="Name" type="Panel" parent="."]
+margin_right = 640.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 0, 14 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Name"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+text = "<CHARACTER NAME>"
+align = 1
+valign = 1
+
+[node name="Info" type="HBoxContainer" parent="."]
+margin_top = 28.0
+margin_right = 640.0
+margin_bottom = 312.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Description" type="RichTextLabel" parent="Info"]
+margin_right = 494.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 0, 14 )
+size_flags_horizontal = 3
+custom_fonts/bold_font = ExtResource( 2 )
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "Testus [b]descriptus[/b] 1"
+text = "Testus descriptus 1"
+
+[node name="V" type="VBoxContainer" parent="Info"]
+margin_left = 498.0
+margin_right = 640.0
+margin_bottom = 284.0
+
+[node name="Portrait" type="TextureRect" parent="Info/V"]
+margin_right = 142.0
+margin_bottom = 261.0
+texture = ExtResource( 5 )
+
+[node name="Frame" type="NinePatchRect" parent="Info/V/Portrait"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="H" type="HBoxContainer" parent="Info/V"]
+margin_top = 265.0
+margin_right = 142.0
+margin_bottom = 284.0
+
+[node name="AffinityType" type="TextureRect" parent="Info/V/H"]
+margin_right = 19.0
+margin_bottom = 19.0
+texture = ExtResource( 8 )
+
+[node name="ProgressBar" type="TextureProgress" parent="Info/V/H"]
+margin_left = 23.0
+margin_right = 142.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture_under = ExtResource( 10 )
+texture_over = ExtResource( 7 )
+texture_progress = ExtResource( 9 )
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Info/V/H/ProgressBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 11 )
+text = "100/100"
+align = 1
+valign = 1

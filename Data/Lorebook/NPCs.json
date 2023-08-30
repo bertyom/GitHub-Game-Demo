@@ -1,0 +1,32 @@
+{
+    "Metrocop": {
+	  "Name": "Metrocop",
+	  "New": true,
+      "Discovered": true,
+      "Location": "City 17",
+      "ImageFile": "Placeholder1",
+      "Description": "He doesn't like you that much", 
+      "Affinity": 0,
+	  "AffinityType": "Friendship"
+    },
+    "Dude lmao": {
+	  "Name": "Dude lmao",
+	  "New": true,
+      "Discovered": true,
+      "Location": "No idea",
+      "ImageFile": "Placeholder2",
+      "Description": "Who is this guy?", 
+      "Affinity": 15,
+	  "AffinityType": "Love"
+    },
+    "Markus": {
+	  "Name": "Markus",
+	  "New": true,
+      "Discovered": false,
+      "Location": "City 17",
+      "ImageFile": "Placeholder3",
+      "Description": "You", 
+      "Affinity": 100,
+	  "AffinityType": "Friendship"
+    }
+}

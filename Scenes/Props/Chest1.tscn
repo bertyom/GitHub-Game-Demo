@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Images/Props/Chest1.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Utility/InteractionEnabler.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Shaders/interact_outline.tres" type="Shader" id=3]
+[ext_resource path="res://Scenes/Utility/InteractionRadius.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Utility/InteractionContainer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Utility/ProjectileCollision.tscn" type="PackedScene" id=7]
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 3 )
+shader_param/width = 0.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 7.99998
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id=13]
+radius = 6.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 43.0
+
+[sub_resource type="Animation" id=9]
+resource_name = "Close"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[node name="Chest" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 2 )
+is_container = true
+container_ID = "main_test"
+should_animate = true
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( 0, -8 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="WorldCollision" type="CollisionShape2D" parent="."]
+position = Vector2( -2.27374e-13, -5 )
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="ProjectileCollision" parent="." instance=ExtResource( 7 )]
+
+[node name="Area2D" parent="ProjectileCollision" index="0"]
+position = Vector2( 0, -5 )
+rotation = 1.5708
+shape = SubResource( 13 )
+
+[node name="InteractionRadius" parent="." instance=ExtResource( 4 )]
+
+[node name="CollisionShape2D" parent="InteractionRadius" index="0"]
+shape = SubResource( 12 )
+
+[node name="InteractionContainer" parent="." instance=ExtResource( 5 )]
+interaction_type = "Containers"
+
+[node name="Harvest" parent="InteractionContainer" index="2"]
+item_ID = 100006.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Close = SubResource( 9 )
+anims/Open = SubResource( 10 )
+anims/RESET = SubResource( 11 )
+
+[editable path="ProjectileCollision"]
+[editable path="InteractionRadius"]
+[editable path="InteractionContainer"]

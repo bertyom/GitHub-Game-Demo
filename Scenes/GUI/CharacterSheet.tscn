@@ -1,0 +1,705 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Fonts/8PX Regular.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Images/UI/CharSheetBG.png" type="Texture" id=2]
+[ext_resource path="res://Images/UI/BallCharisma.png" type="Texture" id=3]
+[ext_resource path="res://Images/UI/BallCharismaHover.png" type="Texture" id=4]
+[ext_resource path="res://Images/UI/BallIntelligenceHover.png" type="Texture" id=5]
+[ext_resource path="res://Images/UI/BallAgilityHover.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/GUI/Abilities.gd" type="Script" id=8]
+[ext_resource path="res://Images/UI/SkillBar10Progress.png" type="Texture" id=9]
+[ext_resource path="res://Images/UI/IconSkillSword.png" type="Texture" id=10]
+[ext_resource path="res://Images/UI/SkillBar10Frame.png" type="Texture" id=11]
+[ext_resource path="res://Images/UI/IconSkillMace.png" type="Texture" id=12]
+[ext_resource path="res://Images/UI/IconSkillSpears.png" type="Texture" id=13]
+[ext_resource path="res://Images/UI/IconSkillArchery.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/GUI/CharacterSheet.gd" type="Script" id=16]
+[ext_resource path="res://Images/UI/SkillBar10Darker.png" type="Texture" id=17]
+[ext_resource path="res://Images/UI/IconSkillGlintItems.png" type="Texture" id=18]
+[ext_resource path="res://Images/UI/BallStrength.png" type="Texture" id=20]
+[ext_resource path="res://Images/UI/BallStrengthHover.png" type="Texture" id=21]
+[ext_resource path="res://Images/UI/BallAgility.png" type="Texture" id=22]
+[ext_resource path="res://Images/UI/BallIntelligence.png" type="Texture" id=23]
+[ext_resource path="res://Images/UI/CharacterSheetPanel.png" type="Texture" id=24]
+[ext_resource path="res://Images/UI/IconSkillArmor.png" type="Texture" id=25]
+[ext_resource path="res://Images/UI/IconSkillHunting.png" type="Texture" id=26]
+[ext_resource path="res://Images/UI/SkillBar3Darker.png" type="Texture" id=27]
+[ext_resource path="res://Images/UI/IconSkillAlchemy.png" type="Texture" id=28]
+[ext_resource path="res://Images/UI/SkillBar3Frame.png" type="Texture" id=29]
+[ext_resource path="res://Images/UI/SkillBar3Progress.png" type="Texture" id=30]
+[ext_resource path="res://Images/UI/IconSkillBarter.png" type="Texture" id=31]
+[ext_resource path="res://Images/UI/IconSkillLockpicking.png" type="Texture" id=32]
+[ext_resource path="res://Images/UI/IconSkillSmithing.png" type="Texture" id=33]
+[ext_resource path="res://Images/UI/IconSkillLanguage.png" type="Texture" id=34]
+[ext_resource path="res://Scenes/GUI/PlayerNameBar.gd" type="Script" id=35]
+[ext_resource path="res://Scenes/GUI/BaseStat.gd" type="Script" id=37]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 24 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 6.0
+margin_right = 6.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[node name="CharacterSheet" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 16 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 6.0
+margin_right = -14.0
+margin_bottom = -6.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="V" type="VBoxContainer" parent="Margin"]
+margin_right = 452.0
+margin_bottom = 348.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+custom_constants/separation = 6
+
+[node name="Top Bar" type="HBoxContainer" parent="Margin/V"]
+margin_right = 452.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="Abilities" type="TextureRect" parent="Margin/V/Top Bar"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+expand = true
+stretch_mode = 6
+
+[node name="Charisma" type="TextureButton" parent="Margin/V/Top Bar/Abilities"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -45.0
+margin_right = 45.0
+margin_bottom = 45.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Margin/V/Top Bar/Abilities/Charisma"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 1 )
+text = "CHA"
+align = 1
+valign = 1
+script = ExtResource( 8 )
+
+[node name="Strength" type="TextureButton" parent="Margin/V/Top Bar/Abilities"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -36.0
+margin_top = -45.0
+margin_bottom = -9.0
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 21 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Margin/V/Top Bar/Abilities/Strength"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 1 )
+text = "STR"
+align = 1
+valign = 1
+script = ExtResource( 8 )
+
+[node name="Agility" type="TextureButton" parent="Margin/V/Top Bar/Abilities"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -45.0
+margin_right = 36.0
+margin_bottom = -9.0
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Margin/V/Top Bar/Abilities/Agility"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 1 )
+text = "AGI"
+align = 1
+valign = 1
+script = ExtResource( 8 )
+
+[node name="Intelligence" type="TextureButton" parent="Margin/V/Top Bar/Abilities"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -18.0
+margin_right = 18.0
+margin_bottom = 36.0
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Margin/V/Top Bar/Abilities/Intelligence"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 1 )
+text = "INT"
+align = 1
+valign = 1
+script = ExtResource( 8 )
+
+[node name="V" type="VBoxContainer" parent="Margin/V/Top Bar"]
+margin_left = 130.0
+margin_right = 452.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 322, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerName" type="Panel" parent="Margin/V/Top Bar/V"]
+margin_right = 322.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 322, 15 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 35 )
+
+[node name="Label" type="Label" parent="Margin/V/Top Bar/V/PlayerName"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+text = "%NAME%"
+align = 1
+valign = 1
+
+[node name="H" type="HBoxContainer" parent="Margin/V/Top Bar/V"]
+margin_top = 19.0
+margin_right = 322.0
+margin_bottom = 75.0
+custom_constants/separation = 25
+
+[node name="Stats" type="VBoxContainer" parent="Margin/V/Top Bar/V/H"]
+margin_right = 74.0
+margin_bottom = 56.0
+
+[node name="Level" type="Label" parent="Margin/V/Top Bar/V/H/Stats"]
+margin_right = 74.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 1 )
+text = "Level:"
+valign = 1
+
+[node name="Learning Points" type="Label" parent="Margin/V/Top Bar/V/H/Stats"]
+margin_top = 12.0
+margin_right = 74.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+text = "Learning Points:"
+valign = 1
+
+[node name="Health" type="Label" parent="Margin/V/Top Bar/V/H/Stats"]
+margin_top = 24.0
+margin_right = 74.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+text = "Health:"
+valign = 1
+
+[node name="Glint" type="Label" parent="Margin/V/Top Bar/V/H/Stats"]
+margin_top = 36.0
+margin_right = 74.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 1 )
+text = "Glint:"
+valign = 1
+
+[node name="Stamina" type="Label" parent="Margin/V/Top Bar/V/H/Stats"]
+margin_top = 48.0
+margin_right = 74.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+text = "Stamina:"
+valign = 1
+
+[node name="StatsValues" type="VBoxContainer" parent="Margin/V/Top Bar/V/H"]
+margin_left = 99.0
+margin_right = 103.0
+margin_bottom = 56.0
+
+[node name="Level" type="Label" parent="Margin/V/Top Bar/V/H/StatsValues"]
+margin_right = 4.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 2
+valign = 1
+script = ExtResource( 37 )
+
+[node name="Learning Points" type="Label" parent="Margin/V/Top Bar/V/H/StatsValues"]
+margin_top = 12.0
+margin_right = 4.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 2
+valign = 1
+script = ExtResource( 37 )
+
+[node name="Health" type="Label" parent="Margin/V/Top Bar/V/H/StatsValues"]
+margin_top = 24.0
+margin_right = 4.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 2
+valign = 1
+script = ExtResource( 37 )
+
+[node name="Glint" type="Label" parent="Margin/V/Top Bar/V/H/StatsValues"]
+margin_top = 36.0
+margin_right = 4.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 2
+valign = 1
+script = ExtResource( 37 )
+
+[node name="Stamina" type="Label" parent="Margin/V/Top Bar/V/H/StatsValues"]
+margin_top = 48.0
+margin_right = 4.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 2
+valign = 1
+script = ExtResource( 37 )
+
+[node name="DerivedStats" type="VBoxContainer" parent="Margin/V/Top Bar/V/H"]
+margin_left = 128.0
+margin_right = 228.0
+margin_bottom = 56.0
+
+[node name="Defence" type="Label" parent="Margin/V/Top Bar/V/H/DerivedStats"]
+margin_right = 100.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 1 )
+text = "Defence:"
+valign = 1
+
+[node name="Knockback Resistance" type="Label" parent="Margin/V/Top Bar/V/H/DerivedStats"]
+margin_top = 12.0
+margin_right = 100.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+text = "Knockback Resistance:"
+valign = 1
+
+[node name="Critical Hit Chance" type="Label" parent="Margin/V/Top Bar/V/H/DerivedStats"]
+margin_top = 24.0
+margin_right = 100.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+text = "Critical Hit Chance:"
+valign = 1
+
+[node name="DerivedStatsValues" type="VBoxContainer" parent="Margin/V/Top Bar/V/H"]
+margin_left = 253.0
+margin_right = 257.0
+margin_bottom = 56.0
+
+[node name="Defence" type="Label" parent="Margin/V/Top Bar/V/H/DerivedStatsValues"]
+margin_right = 4.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 2
+valign = 1
+
+[node name="Knockback Resistance" type="Label" parent="Margin/V/Top Bar/V/H/DerivedStatsValues"]
+margin_top = 12.0
+margin_right = 4.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 2
+valign = 1
+
+[node name="Critical Hit Chance" type="Label" parent="Margin/V/Top Bar/V/H/DerivedStatsValues"]
+margin_top = 24.0
+margin_right = 4.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 2
+valign = 1
+
+[node name="CombatHeader" type="Panel" parent="Margin/V"]
+margin_top = 126.0
+margin_right = 452.0
+margin_bottom = 141.0
+rect_min_size = Vector2( 452, 15 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Margin/V/CombatHeader"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+text = "Combat Skills"
+align = 1
+valign = 1
+
+[node name="Combat Skills" type="HBoxContainer" parent="Margin/V"]
+margin_top = 147.0
+margin_right = 433.0
+margin_bottom = 212.0
+size_flags_horizontal = 0
+
+[node name="MeleeSkills" type="VBoxContainer" parent="Margin/V/Combat Skills"]
+margin_right = 205.0
+margin_bottom = 65.0
+size_flags_vertical = 3
+
+[node name="Swords" type="HBoxContainer" parent="Margin/V/Combat Skills/MeleeSkills"]
+margin_right = 205.0
+margin_bottom = 19.0
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Combat Skills/MeleeSkills/Swords"]
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Combat Skills/MeleeSkills/Swords"]
+margin_left = 4.0
+margin_right = 205.0
+margin_bottom = 19.0
+max_value = 10.0
+texture_under = ExtResource( 17 )
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 9 )
+
+[node name="Heavy Weapons" type="HBoxContainer" parent="Margin/V/Combat Skills/MeleeSkills"]
+margin_top = 23.0
+margin_right = 205.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Combat Skills/MeleeSkills/Heavy Weapons"]
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 5
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Combat Skills/MeleeSkills/Heavy Weapons"]
+margin_left = 4.0
+margin_right = 205.0
+margin_bottom = 19.0
+max_value = 10.0
+texture_under = ExtResource( 17 )
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 9 )
+
+[node name="Polearms" type="HBoxContainer" parent="Margin/V/Combat Skills/MeleeSkills"]
+margin_top = 46.0
+margin_right = 205.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Combat Skills/MeleeSkills/Polearms"]
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Combat Skills/MeleeSkills/Polearms"]
+margin_left = 4.0
+margin_right = 205.0
+margin_bottom = 19.0
+max_value = 10.0
+texture_under = ExtResource( 17 )
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 9 )
+
+[node name="OtherSkills" type="VBoxContainer" parent="Margin/V/Combat Skills"]
+margin_left = 209.0
+margin_right = 433.0
+margin_bottom = 65.0
+size_flags_vertical = 3
+
+[node name="Archery" type="HBoxContainer" parent="Margin/V/Combat Skills/OtherSkills"]
+margin_right = 224.0
+margin_bottom = 19.0
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Combat Skills/OtherSkills/Archery"]
+margin_right = 19.0
+margin_bottom = 19.0
+texture = ExtResource( 15 )
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Combat Skills/OtherSkills/Archery"]
+margin_left = 23.0
+margin_right = 224.0
+margin_bottom = 19.0
+max_value = 10.0
+texture_under = ExtResource( 17 )
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 9 )
+
+[node name="Glint Items" type="HBoxContainer" parent="Margin/V/Combat Skills/OtherSkills"]
+margin_top = 23.0
+margin_right = 224.0
+margin_bottom = 42.0
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Combat Skills/OtherSkills/Glint Items"]
+margin_right = 19.0
+margin_bottom = 19.0
+texture = ExtResource( 18 )
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Combat Skills/OtherSkills/Glint Items"]
+margin_left = 23.0
+margin_right = 224.0
+margin_bottom = 19.0
+max_value = 10.0
+texture_under = ExtResource( 17 )
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 9 )
+
+[node name="Armor" type="HBoxContainer" parent="Margin/V/Combat Skills/OtherSkills"]
+margin_top = 46.0
+margin_right = 224.0
+margin_bottom = 65.0
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Combat Skills/OtherSkills/Armor"]
+margin_right = 19.0
+margin_bottom = 19.0
+texture = ExtResource( 25 )
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Combat Skills/OtherSkills/Armor"]
+margin_left = 23.0
+margin_right = 224.0
+margin_bottom = 19.0
+max_value = 10.0
+texture_under = ExtResource( 17 )
+texture_over = ExtResource( 11 )
+texture_progress = ExtResource( 9 )
+
+[node name="UtilityHeader" type="Panel" parent="Margin/V"]
+margin_top = 218.0
+margin_right = 452.0
+margin_bottom = 233.0
+rect_min_size = Vector2( 452, 15 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Margin/V/UtilityHeader"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+text = "Utility Skills"
+align = 1
+valign = 1
+
+[node name="Utility Skills" type="HBoxContainer" parent="Margin/V"]
+margin_top = 239.0
+margin_right = 178.0
+margin_bottom = 348.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="V1" type="VBoxContainer" parent="Margin/V/Utility Skills"]
+margin_right = 84.0
+margin_bottom = 109.0
+
+[node name="Hunting" type="HBoxContainer" parent="Margin/V/Utility Skills/V1"]
+margin_right = 84.0
+margin_bottom = 19.0
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Utility Skills/V1/Hunting"]
+margin_right = 19.0
+margin_bottom = 19.0
+texture = ExtResource( 26 )
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Utility Skills/V1/Hunting"]
+margin_left = 23.0
+margin_right = 84.0
+margin_bottom = 19.0
+max_value = 3.0
+texture_under = ExtResource( 27 )
+texture_over = ExtResource( 29 )
+texture_progress = ExtResource( 30 )
+
+[node name="Alchemy" type="HBoxContainer" parent="Margin/V/Utility Skills/V1"]
+margin_top = 23.0
+margin_right = 84.0
+margin_bottom = 42.0
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Utility Skills/V1/Alchemy"]
+margin_right = 19.0
+margin_bottom = 19.0
+texture = ExtResource( 28 )
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Utility Skills/V1/Alchemy"]
+margin_left = 23.0
+margin_right = 84.0
+margin_bottom = 19.0
+max_value = 3.0
+texture_under = ExtResource( 27 )
+texture_over = ExtResource( 29 )
+texture_progress = ExtResource( 30 )
+
+[node name="Barter" type="HBoxContainer" parent="Margin/V/Utility Skills/V1"]
+margin_top = 46.0
+margin_right = 84.0
+margin_bottom = 65.0
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Utility Skills/V1/Barter"]
+margin_right = 19.0
+margin_bottom = 19.0
+texture = ExtResource( 31 )
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Utility Skills/V1/Barter"]
+margin_left = 23.0
+margin_right = 84.0
+margin_bottom = 19.0
+max_value = 3.0
+texture_under = ExtResource( 27 )
+texture_over = ExtResource( 29 )
+texture_progress = ExtResource( 30 )
+
+[node name="V2" type="VBoxContainer" parent="Margin/V/Utility Skills"]
+margin_left = 94.0
+margin_right = 178.0
+margin_bottom = 109.0
+
+[node name="Smithing" type="HBoxContainer" parent="Margin/V/Utility Skills/V2"]
+margin_right = 84.0
+margin_bottom = 19.0
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Utility Skills/V2/Smithing"]
+margin_right = 19.0
+margin_bottom = 19.0
+texture = ExtResource( 33 )
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Utility Skills/V2/Smithing"]
+margin_left = 23.0
+margin_right = 84.0
+margin_bottom = 19.0
+max_value = 3.0
+texture_under = ExtResource( 27 )
+texture_over = ExtResource( 29 )
+texture_progress = ExtResource( 30 )
+
+[node name="Lockpicking" type="HBoxContainer" parent="Margin/V/Utility Skills/V2"]
+margin_top = 23.0
+margin_right = 84.0
+margin_bottom = 42.0
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Utility Skills/V2/Lockpicking"]
+margin_right = 19.0
+margin_bottom = 19.0
+texture = ExtResource( 32 )
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Utility Skills/V2/Lockpicking"]
+margin_left = 23.0
+margin_right = 84.0
+margin_bottom = 19.0
+max_value = 3.0
+texture_under = ExtResource( 27 )
+texture_over = ExtResource( 29 )
+texture_progress = ExtResource( 30 )
+
+[node name="Language" type="HBoxContainer" parent="Margin/V/Utility Skills/V2"]
+margin_top = 46.0
+margin_right = 84.0
+margin_bottom = 65.0
+
+[node name="Icon" type="TextureRect" parent="Margin/V/Utility Skills/V2/Language"]
+margin_right = 19.0
+margin_bottom = 19.0
+texture = ExtResource( 34 )
+
+[node name="Progress" type="TextureProgress" parent="Margin/V/Utility Skills/V2/Language"]
+margin_left = 23.0
+margin_right = 84.0
+margin_bottom = 19.0
+max_value = 3.0
+texture_under = ExtResource( 27 )
+texture_over = ExtResource( 29 )
+texture_progress = ExtResource( 30 )
