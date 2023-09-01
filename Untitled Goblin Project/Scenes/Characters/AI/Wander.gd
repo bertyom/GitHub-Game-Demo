@@ -35,7 +35,7 @@ func _physics_process(delta):
 			# Move towards the current destination
 			target = parent_node.global_position.direction_to(nav_agent.get_next_location())
 			direction = target + parent_node.push_vector
-			if target.x >= 0:
+			if target.x > 0:
 				parent_node.anim_tree.travel("R_Walk")
 			else:
 				parent_node.anim_tree.travel("L_Walk")

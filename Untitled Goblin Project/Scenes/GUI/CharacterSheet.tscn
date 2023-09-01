@@ -417,29 +417,26 @@ valign = 1
 
 [node name="Combat Skills" type="HBoxContainer" parent="Margin/V"]
 margin_top = 147.0
-margin_right = 433.0
+margin_right = 452.0
 margin_bottom = 212.0
 size_flags_horizontal = 0
 
 [node name="MeleeSkills" type="VBoxContainer" parent="Margin/V/Combat Skills"]
-margin_right = 205.0
+margin_right = 224.0
 margin_bottom = 65.0
-size_flags_vertical = 3
 
 [node name="Swords" type="HBoxContainer" parent="Margin/V/Combat Skills/MeleeSkills"]
-margin_right = 205.0
+margin_right = 224.0
 margin_bottom = 19.0
 
 [node name="Icon" type="TextureRect" parent="Margin/V/Combat Skills/MeleeSkills/Swords"]
+margin_right = 19.0
 margin_bottom = 19.0
-size_flags_horizontal = 3
 texture = ExtResource( 10 )
-expand = true
-stretch_mode = 5
 
 [node name="Progress" type="TextureProgress" parent="Margin/V/Combat Skills/MeleeSkills/Swords"]
-margin_left = 4.0
-margin_right = 205.0
+margin_left = 23.0
+margin_right = 224.0
 margin_bottom = 19.0
 max_value = 10.0
 texture_under = ExtResource( 17 )
@@ -448,22 +445,17 @@ texture_progress = ExtResource( 9 )
 
 [node name="Heavy Weapons" type="HBoxContainer" parent="Margin/V/Combat Skills/MeleeSkills"]
 margin_top = 23.0
-margin_right = 205.0
+margin_right = 224.0
 margin_bottom = 42.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="Icon" type="TextureRect" parent="Margin/V/Combat Skills/MeleeSkills/Heavy Weapons"]
+margin_right = 19.0
 margin_bottom = 19.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 texture = ExtResource( 12 )
-expand = true
-stretch_mode = 5
 
 [node name="Progress" type="TextureProgress" parent="Margin/V/Combat Skills/MeleeSkills/Heavy Weapons"]
-margin_left = 4.0
-margin_right = 205.0
+margin_left = 23.0
+margin_right = 224.0
 margin_bottom = 19.0
 max_value = 10.0
 texture_under = ExtResource( 17 )
@@ -472,22 +464,17 @@ texture_progress = ExtResource( 9 )
 
 [node name="Polearms" type="HBoxContainer" parent="Margin/V/Combat Skills/MeleeSkills"]
 margin_top = 46.0
-margin_right = 205.0
+margin_right = 224.0
 margin_bottom = 65.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="Icon" type="TextureRect" parent="Margin/V/Combat Skills/MeleeSkills/Polearms"]
+margin_right = 19.0
 margin_bottom = 19.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 texture = ExtResource( 13 )
-expand = true
-stretch_mode = 5
 
 [node name="Progress" type="TextureProgress" parent="Margin/V/Combat Skills/MeleeSkills/Polearms"]
-margin_left = 4.0
-margin_right = 205.0
+margin_left = 23.0
+margin_right = 224.0
 margin_bottom = 19.0
 max_value = 10.0
 texture_under = ExtResource( 17 )
@@ -495,8 +482,8 @@ texture_over = ExtResource( 11 )
 texture_progress = ExtResource( 9 )
 
 [node name="OtherSkills" type="VBoxContainer" parent="Margin/V/Combat Skills"]
-margin_left = 209.0
-margin_right = 433.0
+margin_left = 228.0
+margin_right = 452.0
 margin_bottom = 65.0
 size_flags_vertical = 3
 
